@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div align="center" style="background-image:url(img/wuliu.jpg);background-repeat:no-repeat;background-size:100% 100%;">
+    <div style="height:70px; background-color: blue;">
+        <div style="float: left;">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;快便捷物流</h1>
+        </div>
+        <div style="float: right;" align="center">
+            <p style="font-size: 30px;">
+                <span th:if="${session.user == null}">
+                    <a href="/registerView">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/loginView">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                <span th:if="${session.user != null}">
+                    <span th:text="${session.user.getUsername()}"></span>
+                    <a href="#">退出</a>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div style="height: 70px;">
+		<span style="font-size: 40px;">
+		<a href="#">物流查询</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">加入我们</a>
+		</span>
+    </div>
+    <div style="height: 500px;">
+        <form>
+            <input type="text" style="height: 40px;width: 400px;"/>
+            <input type="submit" value="搜索"/>
+        </form>
+        <div style="border: black solid;height: 350px; width: 500px; margin-top:20px ;background-color: white;">
+            <table border="1" width="100%">
+                <tr>
+                    <td>时间</td>
+                    <td>地点</td>
+                    <td>进度</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <hr/>
+</div>
+
+</body>
+</html>
