@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+	<title>后台管理系统登录界面</title>
+	<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+	<link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+<body class="text-center">
+<form class="form-signin" action="/loginAdminController" method="post">
+	<h1 class="h3 mb-3 font-weight-normal" style="font-size: 40px">后台管理系统登录界面</h1>
+	<input type="hidden" value="111">
+
+	<input type="text" class="form-control"
+		   th:placeholder="用户名" required="" autofocus="" name="username">
+	<input type="password" class="form-control"
+		   th:placeholder="密码" required="" name="password">
+
+
+	<div class="mb-3">
+		<span style="color: red" th:text="${msg}"></span>
+	</div>
+	<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+</form>
+</body>
+</html>

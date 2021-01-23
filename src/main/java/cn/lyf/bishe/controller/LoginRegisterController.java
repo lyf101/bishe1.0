@@ -24,13 +24,13 @@ public class LoginRegisterController {
 
     //跳转登录页面
     @RequestMapping("/loginView")
-    public String loginView(){
+    public String loginView() {
         return "login.html";
     }
 
     //跳转注册页面
-    @RequestMapping("registerView")
-    public String registerView(){
+    @RequestMapping("/registerView")
+    public String registerView() {
         return "register.html";
     }
 
@@ -45,7 +45,7 @@ public class LoginRegisterController {
         model.addAttribute("msg", "");
 
         User user = loginRegisterService.isExistUserByUsernamePassword(username, password);
-        if (user==null) {
+        if (user == null) {
             model.addAttribute("msg", "用户名或密码错误");
             return "login.html";
         } else {
@@ -85,4 +85,6 @@ public class LoginRegisterController {
         model.addAttribute("msg", "注册成功");
         return "register.html";
     }
+
+
 }

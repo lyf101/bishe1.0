@@ -35,13 +35,14 @@ public class LoginRegisterService {
     }
 
 
+    //添加用户
     public int addUser(String username, String password, String realName) {
         User user = new User();
         user.setId(UUID.randomUUID().toString());
         user.setUsername(username);
         user.setPassword(password);
         user.setRealName(realName);
-        user.setUserType("普通用户");
+        user.setUserType("user");
         int i = userMapper.insertUser(user);
         return i;
     }

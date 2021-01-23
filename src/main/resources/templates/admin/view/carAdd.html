@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table tr td{
+            border:  dimgray solid;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <form method="post" action="/carAddController">
+        <table style="border:  dimgray solid;">
+            <tr>
+                <td align="right">车牌号：</td>
+                <td><input type="text" name="carNum"></td>
+            </tr>
+            <tr>
+                <td align="right">品牌：</td>
+                <td><input type="text" name="carBrand"></td>
+            </tr>
+            <tr>
+                <td align="right">载重：</td>
+                <td><input type="text" name="carWeight"></td>
+            </tr>
+            <tr>
+                <td align="right">公里数：</td>
+                <td><input type="text" name="carMile"></td>
+            </tr>
+            <tr>
+                <td align="right">描述：</td>
+                <td><input type="text" name="carPress"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="添加">
+                    <span style="color: red" th:text="${msg}"></span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

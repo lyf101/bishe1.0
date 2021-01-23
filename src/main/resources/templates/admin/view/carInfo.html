@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .content{
+            border: blue solid;
+        }
+        .content tr td{
+            border: blue solid 1px;
+        }
+        .content tr th{
+            border: blue solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <table class="content" width="100%">
+        <tr style="font-size: 20px;">
+            <th>序号</th>
+            <th>车牌号</th>
+            <th>品牌</th>
+            <th>载重</th>
+            <th>公里数</th>
+            <th>描述</th>
+        </tr>
+        <tr th:each="car:${session.carList}" style="text-align: center">
+            <td th:text="${carStat.index+1}"></td>
+            <td th:text="${car.getCarNum()}"></td>
+            <td th:text="${car.getCarBrand()}"></td>
+            <td th:text="${car.getCarWeight()}"></td>
+            <td th:text="${car.getCarMile()}"></td>
+            <td th:text="${car.getCarPress()}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

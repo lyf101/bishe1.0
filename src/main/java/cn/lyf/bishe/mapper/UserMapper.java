@@ -1,10 +1,7 @@
 package cn.lyf.bishe.mapper;
 
 import cn.lyf.bishe.domain.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,13 +14,20 @@ import java.util.List;
 @Component
 public interface UserMapper {
 
+    @Select("select * from user")
+    List<User> findUser();
+
     @Select("select * from user where username = #{username}")
-    public List<User> findUserByUsername(String username);
+    List<User> findUserByUsername(String username);
 
     @Select("select * from user where username = #{username} and password = #{password}")
-    public List<User> findUserByUsernamePassword(@Param("username")String username,@Param("password")String password);
+    List<User> findUserByUsernamePassword(@Param("username")String username,@Param("password")String password);
 
     @Insert("insert into user values(#{id},#{username},#{password},#{realName},#{userType})")
-    public int insertUser(User user);
+    int insertUser(User user);
+
+
+    @Delete("delete from user where id = #{id}")
+    int deleteUserById(String id);
 
 }

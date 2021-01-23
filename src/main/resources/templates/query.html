@@ -19,14 +19,14 @@
                 </span>
                 <span th:if="${session.user != null}">
                     <span th:text="${session.user.getUsername()}"></span>
-                    <a href="#">退出</a>
+                    <a href="/queryView">退出</a>
                 </span>
             </p>
         </div>
     </div>
     <div style="height: 70px;">
 		<span style="font-size: 40px;">
-		<a href="#">物流查询</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="/loginController">物流查询</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#">加入我们</a>
