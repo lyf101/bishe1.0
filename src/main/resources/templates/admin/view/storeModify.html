@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table tr td{
+            border:  dimgray solid;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <form method="post" th:action="@{/storeModifyController(id=${session.store.getId()})}">
+        <table style="border:  dimgray solid;">
+            <tr>
+                <td align="right">仓库名：</td>
+                <td><input type="text" name="storeName" th:value="${session.store.getStoreName()}"></td>
+            </tr>
+            <tr>
+                <td align="right">物品名称：</td>
+                <td><input type="text" name="goodsName" th:value="${session.store.getGoodsName()}"></td>
+            </tr>
+            <tr>
+                <td align="right">物品数量：</td>
+                <td><input type="text" name="goodsNum" th:value="${session.store.getGoodsNum()}"></td>
+            </tr>
+            <tr>
+                <td align="right">物品状态：</td>
+                <td><input type="text" name="goodsStatus" th:value="${session.store.getGoodsStatus()}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="修改">
+                    <span style="color: red" th:text="${msg}"></span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

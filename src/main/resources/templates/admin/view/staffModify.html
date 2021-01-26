@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table tr td{
+            border:  dimgray solid;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <form method="post" th:action="@{/staffModifyController(id=${session.staff.getId()})}">
+        <table style="border:  dimgray solid;">
+            <tr>
+                <td align="right">员工编号：</td>
+                <td><input type="text" name="staffId" th:value="${session.staff.getStaffId()}"></td>
+            </tr>
+            <tr>
+                <td align="right">姓名：</td>
+                <td><input type="text" name="staffName" th:value="${session.staff.getStaffName()}"></td>
+            </tr>
+            <tr>
+                <td align="right">性别：</td>
+                <td><input type="text" name="staffSex" th:value="${session.staff.getStaffSex()}"></td>
+            </tr>
+            <tr>
+                <td align="right">年龄：</td>
+                <td><input type="text" name="staffAge" th:value="${session.staff.getStaffAge()}"></td>
+            </tr>
+            <tr>
+                <td align="right">联系方式：</td>
+                <td><input type="text" name="staffTel" th:value="${session.staff.getStaffTel()}"></td>
+            </tr>
+            <tr>
+                <td align="right">所在地：</td>
+                <td><input type="text" name="staffAddress" th:value="${session.staff.getStaffAddress()}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="修改">
+                    <span style="color: red" th:text="${msg}"></span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

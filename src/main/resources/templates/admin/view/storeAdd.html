@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table tr td{
+            border:  dimgray solid;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <form method="post" action="/storeAddController">
+        <table style="border:  dimgray solid;">
+            <tr>
+                <td align="right">仓库名称：</td>
+                <td><input type="text" name="storeName"></td>
+            </tr>
+            <tr>
+                <td align="right">物品名称：</td>
+                <td><input type="text" name="goodsName"></td>
+            </tr>
+            <tr>
+                <td align="right">物品数量：</td>
+                <td><input type="text" name="goodsNum"></td>
+            </tr>
+            <tr>
+                <td align="right">物品状态：</td>
+                <td><input type="text" name="goodsStatus"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="添加">
+                    <span style="color: red" th:text="${msg}"></span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .content{
+            border: blue solid;
+        }
+        .content tr td{
+            border: blue solid 1px;
+        }
+        .content tr th{
+            border: blue solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <table class="content" width="100%">
+        <tr style="font-size: 20px;">
+            <th>序号</th>
+            <th>仓库名称</th>
+            <th>物品名称</th>
+            <th>物品数量</th>
+            <th>物品状态</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="store:${session.storeList}" style="text-align: center">
+            <td th:text="${storeStat.index+1}"></td>
+            <td th:text="${store.getStoreName()}"></td>
+            <td th:text="${store.getGoodsName()}"></td>
+            <td th:text="${store.getGoodsNum()}"></td>
+            <td th:text="${store.getGoodsStatus()}"></td>
+            <td><a th:href="@{/storeModifyView(id=${store.getId()})}">修改信息</a>&nbsp;&nbsp;<a th:href="@{/storeDeleteController(id=${store.getId()})}">删除</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

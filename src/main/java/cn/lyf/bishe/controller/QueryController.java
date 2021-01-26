@@ -21,4 +21,11 @@ public class QueryController {
 
 
 
+ /*   @RequestMapping("/queryController")
+    public String queryController(){
+
+    }*/
+
+
+
 }
