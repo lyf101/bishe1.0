@@ -26,23 +26,34 @@
     </div>
     <div style="height: 70px;">
 		<span style="font-size: 40px;">
-		<a href="/loginController">物流查询</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="/toQueryView">物流查询</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#">加入我们</a>
 		</span>
     </div>
     <div style="height: 500px;">
-        <form action="/queryController">
+        <form action="/queryController" method="post">
             <input type="text" name="text" style="height: 40px;width: 400px;"/>
             <input type="submit" value="搜索"/>
         </form>
         <div style="border: black solid;height: 350px; width: 500px; margin-top:20px ;background-color: white;">
             <table border="1" width="100%">
                 <tr>
-                    <td>时间</td>
-                    <td>地点</td>
-                    <td>进度</td>
+                    <th>时间</th>
+                    <th>寄货人</th>
+                    <th>物品名称</th>
+                    <th>目的地</th>
+                    <th>运货员</th>
+                    <th>当前位置</th>
+                </tr>
+                <tr th:each="orders:${session.ordersList}">
+                    <td th:text="${orders.getTime()}"></td>
+                    <td th:text="${orders.getUserName()}"></td>
+                    <td th:text="${orders.getStoreName()}"></td>
+                    <td th:text="${orders.getEndAddress()}"></td>
+                    <td th:text="${orders.getStaffName()}"></td>
+                    <td th:text="${orders.getCurrentAddress()}"></td>
                 </tr>
             </table>
         </div>
