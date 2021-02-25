@@ -1,8 +1,7 @@
 package cn.lyf.bishe.mapper;
 
 import cn.lyf.bishe.domain.Orders;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,7 +14,24 @@ import java.util.List;
 @Component
 public interface OrdersMapper {
 
+    @Select("select * from orders where id = #{id}")
+    public Orders findOrderById(String id);
+
     @Select("select * from orders where concat(user_name,store_name,staff_name,end_address,current_address,time)  like CONCAT('%',#{text},'%')")
     public List<Orders> findOrdersByText(String text);
 
+     @Select("select * from orders ")
+    public List<Orders> findAllOrders();
+
+     @Insert("insert into orders values(#{id},#{userName},#{storeName},#{staffName},#{endAddress},#{currentAddress},#{time})")
+    public int addOrders(Orders orders);
+
+     //根据id删除配送信息
+     @Delete("delete from orders where id = #{id}")
+    public int deleteOrdersById(String id);
+
+     @Update("update orders set user_name=#{userName},store_name=#{storeName}, " +
+             "staff_name=#{staffName},end_address=#{endAddress},current_address=#{currentAddress}," +
+             "time=#{time} where id = #{id}")
+    public int updateOrders(Orders orders);
 }

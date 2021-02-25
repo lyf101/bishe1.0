@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .content{
+            border: blue solid;
+        }
+        .content tr td{
+            border: blue solid 1px;
+        }
+        .content tr th{
+            border: blue solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <table class="content" width="100%">
+        <tr style="font-size: 20px;">
+            <th>序号</th>
+            <th>用户名</th>
+            <th>物品名</th>
+            <th>配送员工名</th>
+            <th>目的地</th>
+            <th>当前位置</th>
+            <th>寄件时间</th>
+        </tr>
+        <tr th:each="orders:${session.ordersList}" style="text-align: center">
+            <td th:text="${ordersStat.index+1}"></td>
+            <td th:text="${orders.getUserName()}"></td>
+            <td th:text="${orders.getStoreName()}"></td>
+            <td th:text="${orders.getStaffName()}"></td>
+            <td th:text="${orders.getEndAddress()}"></td>
+            <td th:text="${orders.getCurrentAddress()}"></td>
+            <td th:text="${orders.getTime()}"></td>
+            <td><a th:href="@{/ordersModifyView(id=${orders.getId()})}">修改信息</a>&nbsp;&nbsp;
+                <a th:href="@{/ordersDeleteController(id=${orders.getId()})}">删除</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

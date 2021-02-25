@@ -12,7 +12,6 @@ public class Orders {
     private String userName;
     private String StoreName;
     private String staffName;
-    private String carName;
     private String endAddress;
     private String currentAddress;
     private String time;

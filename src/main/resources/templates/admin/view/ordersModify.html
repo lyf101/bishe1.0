@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table tr td{
+            border:  dimgray solid;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <form method="post" th:action="@{/ordersModifyController(id=${session.orders.getId()})}">
+        <table style="border:  dimgray solid;">
+            <tr>
+                <td align="right">用户名：</td>
+                <td><input type="text" name="userName" th:value="${session.orders.getUserName()}"></td>
+            </tr>
+            <tr>
+                <td align="right">物品名：</td>
+                <td><input type="text" name="storeName" th:value="${session.orders.getStoreName()}"></td>
+            </tr>
+            <tr>
+                <td align="right">员工名：</td>
+                <td><input type="text" name="staffName" th:value="${session.orders.getStaffName()}"></td>
+            </tr>
+            <tr>
+                <td align="right">目的地：</td>
+                <td><input type="text" name="endAddress" th:value="${session.orders.getEndAddress()}"></td>
+            </tr>
+            <tr>
+                <td align="right">当前位置：</td>
+                <td><input type="text" name="currentAddress" th:value="${session.orders.getCurrentAddress()}"></td>
+            </tr>
+            <tr>
+                <td align="right">寄件时间：</td>
+                <td><input type="text" name="time" th:value="${session.orders.getTime()}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="修改">
+                    <span style="color: red" th:text="${msg}"></span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
