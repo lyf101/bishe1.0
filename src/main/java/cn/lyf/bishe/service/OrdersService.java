@@ -78,4 +78,11 @@ public class OrdersService {
         }return false;
     }
 
+    public boolean addOrdersForUser(Orders orders){
+        int i = ordersMapper.addOrders(orders);
+        if (i>0){
+            return true;
+        }return false;
+    }
+
 }

@@ -23,16 +23,17 @@
             <th>员工编号</th>
             <th>姓名</th>
             <th>性别</th>
-            <th>年龄</th>
+            <th>状态</th>
             <th>联系方式</th>
             <th>所在地</th>
+            <th>操作</th>
         </tr>
         <tr th:each="staff:${session.staffList}" style="text-align: center">
             <td th:text="${staffStat.index+1}"></td>
             <td th:text="${staff.getStaffId()}"></td>
             <td th:text="${staff.getStaffName()}"></td>
             <td th:text="${staff.getStaffSex()}"></td>
-            <td th:text="${staff.getStaffAge()}"></td>
+            <td th:text="${staff.getStaffState()}"></td>
             <td th:text="${staff.getStaffTel()}"></td>
             <td th:text="${staff.getStaffAddress()}"></td>
             <td><a th:href="@{/staffModifyView(id=${staff.getId()})}">修改信息</a>&nbsp;&nbsp;<a th:href="@{/staffDeleteController(id=${staff.getId()})}">删除</a></td>

@@ -57,17 +57,17 @@ public class StaffController {
     public String staffAddController(@RequestParam("staffId")String staffId,
                                    @RequestParam("staffName")String staffName,
                                    @RequestParam("staffSex")String staffSex,
-                                   @RequestParam("staffAge")String staffAgeStr,
+                                   @RequestParam("staffState")String staffStateStr,
                                    @RequestParam("staffTel")String staffTel,
                                    @RequestParam("staffAddress")String staffAddress,
                                    Model model){
-        if (staffId==null||staffName==null||staffSex==null||staffAgeStr==null||staffTel==null||staffAddress==null
-        ||staffId.equals("")||staffName.equals("")||staffSex.equals("")||staffAgeStr.equals("")||staffTel.equals("")||staffAddress.equals("")){
+        if (staffId==null||staffName==null||staffSex==null||staffStateStr==null||staffTel==null||staffAddress==null
+        ||staffId.equals("")||staffName.equals("")||staffSex.equals("")||staffStateStr.equals("")||staffTel.equals("")||staffAddress.equals("")){
             model.addAttribute("msg","信息不能为空");
             return "admin/view/staffAdd.html";
         }
-        int staffAge = Integer.valueOf(staffAgeStr);
-        boolean b = staffService.addStaff(staffId, staffName, staffSex, staffAge, staffTel,staffAddress);
+        int staffState = Integer.valueOf(staffStateStr);
+        boolean b = staffService.addStaff(staffId, staffName, staffSex, staffState, staffTel,staffAddress);
         if(b){
             return "redirect:/staffInfoView";
         }else {
@@ -105,11 +105,11 @@ public class StaffController {
                                         @RequestParam("staffId")String staffId,
                                         @RequestParam("staffName")String staffName,
                                         @RequestParam("staffSex")String staffSex,
-                                        @RequestParam("staffAge")String staffAgeStr,
+                                        @RequestParam("staffState")String staffStateStr,
                                         @RequestParam("staffTel")String staffTel,
                                         @RequestParam("staffAddress")String staffAddress){
-        int staffAge = Integer.valueOf(staffAgeStr);
-        boolean b = staffService.updateStaff(id,staffId, staffName, staffSex, staffAge, staffTel,staffAddress);
+        int staffState = Integer.valueOf(staffStateStr);
+        boolean b = staffService.updateStaff(id,staffId, staffName, staffSex, staffState, staffTel,staffAddress);
         if (b){
             return "redirect:/staffAlterView";
         }else return "admin/view/staffModify.html";

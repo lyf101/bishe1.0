@@ -26,6 +26,7 @@
             <th>目的地</th>
             <th>当前位置</th>
             <th>寄件时间</th>
+            <th>操作</th>
         </tr>
         <tr th:each="orders:${session.ordersList}" style="text-align: center">
             <td th:text="${ordersStat.index+1}"></td>

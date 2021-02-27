@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+<div align="center" style="background-image:url(img/wuliu.jpg);background-repeat:no-repeat;background-size:100% 100%;">
+    <div style="height:70px; background-color: blue;">
+        <div style="float: left;">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;快便捷物流</h1>
+        </div>
+        <div style="float: right;" align="center">
+            <p style="font-size: 30px;">
+						<span th:if="${session.user == null}">
+                    <a href="/registerView">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/loginView">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                <span th:if="${session.user != null}">
+                    <span th:text="${session.user.getUsername()}"></span>
+						<a href="/queryView">退出</a>
+						</span>
+            </p>
+        </div>
+    </div>
+    <div style="height: 70px;">
+				<span style="font-size: 40px;">
+		<a href="/toQueryView">物流查询</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="/toMailSendView">物流下单</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">加入我们</a>
+		</span>
+    </div>
+    <div style="height: 500px;">
+        <div style="border: black solid;height: 350px; width: 500px; margin-top:20px ;background-color: #5bc0de;">
+            <table border="1" width="100%">
+                <form class="form-horizontal" action="/mailSendController">
+                    <div class="col-lg-12">
+                        <label class="col-sm-2 control-label">用户名</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" name="userName">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <label class="col-sm-2 control-label">物品名</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" name="storeName" >
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <label class="col-sm-2 control-label">目的地</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" name="endAddress">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="col-sm-offset-2 col-sm-10">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" class="btn btn-primary" value="提交"/>
+                        </div>
+                    </div>
+                </form>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

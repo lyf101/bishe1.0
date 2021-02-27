@@ -12,7 +12,7 @@ public class Staff {
     private String staffId;
     private String staffName;
     private String  staffSex;
-    private int staffAge;
+    private int staffState;
     private String staffTel;
     private String staffAddress;
 

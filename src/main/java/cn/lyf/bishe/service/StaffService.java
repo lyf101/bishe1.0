@@ -24,13 +24,13 @@ public class StaffService {
     }
 
     //添加库存
-    public boolean addStaff(String staffId, String staffName, String staffSex, int staffAge,String staffTel,String staffAddress) {
+    public boolean addStaff(String staffId, String staffName, String staffSex, int staffState,String staffTel,String staffAddress) {
         Staff staff = new Staff();
         staff.setId(UUID.randomUUID().toString());
         staff.setStaffId(staffId);
         staff.setStaffName(staffName);
         staff.setStaffSex(staffSex);
-        staff.setStaffAge(staffAge);
+        staff.setStaffState(staffState);
         staff.setStaffTel(staffTel);
         staff.setStaffAddress(staffAddress);
 
@@ -58,13 +58,13 @@ public class StaffService {
 
 
     //更新员工信息
-    public boolean updateStaff(String id,String staffId, String staffName, String staffSex, int staffAge,String staffTel,String staffAddress) {
+    public boolean updateStaff(String id,String staffId, String staffName, String staffSex, int staffState,String staffTel,String staffAddress) {
         Staff staff = new Staff();
         staff.setId(id);
         staff.setStaffId(staffId);
         staff.setStaffName(staffName);
         staff.setStaffSex(staffSex);
-        staff.setStaffAge(staffAge);
+        staff.setStaffState(staffState);
         staff.setStaffTel(staffTel);
         staff.setStaffAddress(staffAddress);
 
@@ -75,4 +75,15 @@ public class StaffService {
         } else return true;
     }
 
+    //查出空闲员工，抽取一个,设为不空闲
+    public Staff findStaffByState(){
+        List<Staff> staffByState = staffMapper.findStaffByState(0);
+        if (staffByState.isEmpty()){
+            return null;
+        }
+        Staff staff = staffByState.get(0);
+        String id = staff.getId();
+        staffMapper.updateStaffState(id);
+        return staff;
+    }
 }
