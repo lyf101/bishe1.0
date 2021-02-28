@@ -95,6 +95,7 @@ public class OrdersController {
                                          @RequestParam("currentAddress")String currentAddress,
                                          @RequestParam("id")String id,
                                          @RequestParam("time")String time,
+                                         @RequestParam("carNum")String carNum,
                                          Model model
                                          ){
         Orders orders = new Orders();
@@ -105,6 +106,7 @@ public class OrdersController {
         orders.setUserName(userName);
         orders.setTime(time);
         orders.setId(id);
+        orders.setCarNum(carNum);
 
         boolean b = ordersService.updateOrders(orders);
         if (b){

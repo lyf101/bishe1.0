@@ -1,7 +1,9 @@
 package cn.lyf.bishe.controller;
 
+import cn.lyf.bishe.domain.Car;
 import cn.lyf.bishe.domain.Orders;
 import cn.lyf.bishe.domain.Staff;
+import cn.lyf.bishe.service.CarService;
 import cn.lyf.bishe.service.OrdersService;
 import cn.lyf.bishe.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class MailSendController {
     @Autowired
     private OrdersService ordersService;
 
+    @Autowired
+    private CarService carService;
+
     @RequestMapping("/toMailSendView")
     public String toMailSendView(HttpSession session){
         if (session.getAttribute("user")==null||session.getAttribute("user").equals("")){
@@ -45,11 +50,17 @@ public class MailSendController {
 
         String staffName = "";
         String staffAddress = "";
+        String carNum = "";
 
         Staff staff = staffService.findStaffByState();
         if (staff!=null){
             staffName = staff.getStaffName();
             staffAddress = staff.getStaffAddress();
+        }
+
+        Car car = carService.findCarByCarPress();
+        if (car!=null){
+            carNum = car.getCarNum();
         }
 
         Orders orders = new Orders();
@@ -60,6 +71,7 @@ public class MailSendController {
         orders.setStaffName(staffName);
         orders.setCurrentAddress(staffAddress);
         orders.setEndAddress(endAddress);
+        orders.setCarNum(carNum);
 
         boolean b = ordersService.addOrdersForUser(orders);
         if (b){

@@ -18,6 +18,6 @@ public class Car {
     private String carWeight;
     //公里数
     private String carMile;
-    //描述
+    //状态
     private String carPress;
 }

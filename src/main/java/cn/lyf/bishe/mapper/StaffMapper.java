@@ -32,8 +32,8 @@ public interface StaffMapper {
     public List<Staff> findStaffByState(int staffState);
 
     //更改员工状态
-    @Update("update staff set staff_state=1 where id = #{id}")
-    public int updateStaffState(String id);
+    @Update("update staff set staff_state=#{staffStare} where id = #{id}")
+    public int updateStaffState(@Param("staffStare") int staffStare,@Param("id") String id);
 
     //根据id查询员工
     @Select("select * from staff where id = #{id}")

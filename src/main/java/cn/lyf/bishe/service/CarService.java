@@ -48,7 +48,7 @@ public class CarService {
     }
 
     //更新车辆信息
-    public boolean updateCar(String id,String carNum, String carBrand, String carWeight, String carMile, String carPress) {
+    public boolean updateCar(String id, String carNum, String carBrand, String carWeight, String carMile, String carPress) {
         Car car = new Car();
         car.setId(id);
         car.setCarBrand(carBrand);
@@ -67,6 +67,14 @@ public class CarService {
     //根据id搜车辆
     public Car findCarById(String id) {
         Car car = carMapper.findCarById(id);
+        return car;
+    }
+
+    //查出空闲状态的车辆,并设为工作中
+    public Car findCarByCarPress() {
+        List<Car> cars = carMapper.findCarByCarPress("空闲");
+        Car car = cars.get(0);
+        carMapper.updateCarPress("工作中",car.getId());
         return car;
     }
 }

@@ -29,7 +29,7 @@
         </tr>
         <tr th:each="staff:${session.staffList}" style="text-align: center">
             <td th:text="${staffStat.index+1}"></td>
-            <td th:text="${staff.getStaffId()}"></td>S
+            <td th:text="${staff.getStaffId()}"></td>
             <td th:text="${staff.getStaffName()}"></td>
             <td th:text="${staff.getStaffSex()}"></td>
             <td th:text="${staff.getStaffState()}"></td>

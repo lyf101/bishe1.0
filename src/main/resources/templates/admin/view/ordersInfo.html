@@ -26,6 +26,8 @@
             <th>目的地</th>
             <th>当前位置</th>
             <th>寄件时间</th>
+            <th>配送车辆</th>
+
         </tr>
         <tr th:each="orders:${session.ordersList}" style="text-align: center">
             <td th:text="${ordersStat.index+1}"></td>
@@ -35,6 +37,7 @@
             <td th:text="${orders.getEndAddress()}"></td>
             <td th:text="${orders.getCurrentAddress()}"></td>
             <td th:text="${orders.getTime()}"></td>
+            <td th:text="${orders.getCarNum()}"></td>
         </tr>
     </table>
 </div>

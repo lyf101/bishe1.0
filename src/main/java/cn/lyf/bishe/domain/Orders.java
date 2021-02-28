@@ -15,4 +15,5 @@ public class Orders {
     private String endAddress;
     private String currentAddress;
     private String time;
+    private String carNum;
 }

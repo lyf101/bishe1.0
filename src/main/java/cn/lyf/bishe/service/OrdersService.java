@@ -1,5 +1,6 @@
 package cn.lyf.bishe.service;
 
+import cn.lyf.bishe.domain.Car;
 import cn.lyf.bishe.domain.Orders;
 import cn.lyf.bishe.mapper.OrdersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class OrdersService {
 
     @Autowired
     private OrdersMapper ordersMapper;
+
+    @Autowired
+    private CarService carService;
 
     //根据id查配送信息
     public Orders findOrderById(String id){
@@ -55,6 +59,12 @@ public class OrdersService {
         orders.setStaffName(staffName);
         orders.setEndAddress(endAddress);
         orders.setCurrentAddress(currentAddress);
+
+        Car car = carService.findCarByCarPress();
+        if (car!=null) {
+            orders.setCarNum(car.getCarNum());
+        }
+
 
         int i = ordersMapper.addOrders(orders);
         if (i>0){

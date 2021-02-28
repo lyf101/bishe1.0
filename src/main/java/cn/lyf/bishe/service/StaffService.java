@@ -83,7 +83,7 @@ public class StaffService {
         }
         Staff staff = staffByState.get(0);
         String id = staff.getId();
-        staffMapper.updateStaffState(id);
+        staffMapper.updateStaffState(1,id);
         return staff;
     }
 }
